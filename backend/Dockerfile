@@ -3,15 +3,16 @@ FROM oven/bun:latest AS builder
 WORKDIR /app
 
 COPY package.json .
+COPY *.lockb . 
 
-RUN yarn
+RUN bun install
 
 COPY . .
 
-RUN yarn build
+RUN bun run build
 
 FROM oven/bun:latest AS production
 
 COPY --from=builder /app .
 
-CMD [ "yarn", "start:prod" ]
+CMD [ "bun", "run", "start:prod" ]
