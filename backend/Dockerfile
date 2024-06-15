@@ -1,4 +1,4 @@
-FROM node:22-alpine AS builder
+FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN yarn build
 
-FROM node:22-alpine AS production
+FROM oven/bun:latest AS production
 
 COPY --from=builder /app .
 
