@@ -54,8 +54,8 @@
       # Runs when the workspace is (re)started
       onStart = {
         start-neo4j = "docker compose up --build -d";
-        start-backend = "cd backend && bun install && bun run start:dev";
-        start-frontend = "cd frontend && bun install && bun run dev";
+        # start-backend = "cd backend && bun install && bun run start:dev";
+        # start-frontend = "cd frontend && bun install && bun run dev";
         # Example: start a background task to watch and re-build backend code
         # watch-backend = "npm run watch-backend";
       };
